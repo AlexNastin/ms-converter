@@ -1,0 +1,23 @@
+spring:
+  profiles.active: default
+eureka:
+  instance:
+    appname: gateway
+    hostname: gateway
+server:
+  port: ${GATEWAY_SERVER_PORT:9090}
+zuul:
+  prefix: /api/v1
+  routes:
+    quota:
+      path: /test/**
+      serviceId: converner1c
+---
+spring:
+  profiles: default
+
+---
+spring:
+  profiles: container
+  zipkin:
+    base-url: http://zipkin:9411

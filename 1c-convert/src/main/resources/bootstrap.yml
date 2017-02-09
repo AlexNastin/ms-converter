@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: converter1c
+  cloud:
+    config:
+      enabled: true
+      fail-fast: true
+      retry:
+        initial-interval: 100000
+        max-attempts: 20
+        max-interval: 10000
+---
+spring:
+  profiles: default
+  cloud:
+    config:
+      uri: http://localhost:8888
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      uri: http://localhost:8888
+---
+spring:
+  profiles: container
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVER_HOST}:8888

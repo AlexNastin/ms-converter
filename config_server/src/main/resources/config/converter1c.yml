@@ -1,0 +1,32 @@
+spring:
+  profiles.active: default
+eureka:
+  instance:
+    appname: converter1c
+    hostname: converter1c
+server:
+  port: ${CONVERTER1C_SERVER_PORT:8081}
+---
+spring:
+  profiles: default
+  data:
+    mongodb:
+      uri: mongodb://localhost/converter1c
+---
+spring:
+  profiles: test
+  data:
+    mongodb:
+      uri: mongodb://localhost/oe_test_converter1c
+eureka:
+  client:
+    enabled: false
+---
+spring:
+  profiles: container
+  data:
+    mongodb:
+      uri: mongodb://${CONVERTER1C_DB_HOST}/${CONVERTER1C_DB_NAME}
+  zipkin:
+    base-url: http://zipkin:9411
+

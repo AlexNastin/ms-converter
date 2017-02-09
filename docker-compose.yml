@@ -1,0 +1,69 @@
+version: "2"
+services:
+  config-server:
+    container_name: config_server
+    restart: always
+    environment:
+      - CONFIG_SERVER_PORT=8888
+      - SERVICE_REGISTRY_URL=${DOCKER_IP}
+      - SERVICE_REGISTRY_PORT=8761
+      - EUREKA_INSTANCE_IP_ADDRESS=${DOCKER_IP}
+    ports:
+      - "8888:8888"
+
+  service-registry:
+    container_name: service_registry
+    restart: always
+    environment:
+      - CONFIG_SERVER_HOST=${DOCKER_IP}
+      - REGISTRY_SERVER_PORT=8761
+      - SERVICE_REGISTRY_URL=${DOCKER_IP}
+      - SERVICE_REGISTRY_PORT=8761
+      - EUREKA_INSTANCE_IP_ADDRESS=${DOCKER_IP}
+    ports:
+      - "8761:8761"
+    links:
+      - config-server
+
+  service_gateway:
+    container_name: service_gateway
+    restart: always
+    environment:
+      - CONFIG_SERVER_HOST=${DOCKER_IP}
+      - GATEWAY_SERVER_PORT=9090
+      - SERVICE_REGISTRY_URL=${DOCKER_IP}
+      - SERVICE_REGISTRY_PORT=8761
+      - EUREKA_INSTANCE_IP_ADDRESS=${DOCKER_IP}
+    ports:
+      - "9090:9090"
+    links:
+      - config-server
+
+  service_gateway:
+    container_name: service_gateway
+    restart: always
+    environment:
+      - CONFIG_SERVER_HOST=${DOCKER_IP}
+      - GATEWAY_SERVER_PORT=9090
+      - SERVICE_REGISTRY_URL=${DOCKER_IP}
+      - SERVICE_REGISTRY_PORT=8761
+      - EUREKA_INSTANCE_IP_ADDRESS=${DOCKER_IP}
+    ports:
+      - "9090:9090"
+    links:
+      - config-server
+
+  1c-convert:
+    container_name: 1c-convert
+    restart: always
+    environment:
+      - CONFIG_SERVER_HOST=${DOCKER_IP}
+      - 1C_CONVERT_SERVER_PORT=8081
+      - SERVICE_REGISTRY_URL=${DOCKER_IP}
+      - SERVICE_REGISTRY_PORT=8761
+      - EUREKA_INSTANCE_IP_ADDRESS=${DOCKER_IP}
+    ports:
+      - "8081:8081"
+    links:
+      - service-registry
+      - config-server

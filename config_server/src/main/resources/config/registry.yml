@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: default
+server:
+  port: ${REGISTRY_SERVER_PORT:8761}
+eureka:
+  instance:
+    appname: registry
+    hostname: registry
+    prefer-ip-address: true
+  server:
+    responseCacheUpdateIntervalMs: 15000
+    evictionIntervalTimerInMs: 15000
+    waitTimeInMsWhenSyncEmpty: 0
+    enableSelfPreservation: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+---
+spring:
+  profiles: default
+eureka:
+  instance:
+    hostname: localhost
+---
+spring:
+  profiles: container
