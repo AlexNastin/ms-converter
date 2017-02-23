@@ -12,9 +12,13 @@
     $ run service_gateway
     $ run other modules
 
-### Start project Docker
+### Create JAR files 
 
-    $ run file "run-projects.bat"
+    $ run file "run-package.bat"
+    
+### Create Docker images and start Docker containers 
+
+    $ run file "run-install.bat"
     $ cd dir project
     $ docker-compose up -d
  
