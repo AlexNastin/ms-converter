@@ -10,8 +10,11 @@ zuul:
   prefix: /api/v1
   routes:
     quota:
-      path: /test/**
+      path: /convert/**
       serviceId: converner1c
+  host:
+   connect-timeout-millis: 50000
+   socket-timeout-millis: 50000
 ---
 spring:
   profiles: default
