@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("by.dt")
 public class Converter1CApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Converter1CApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Converter1CApplication.class, args);
+    }
 }

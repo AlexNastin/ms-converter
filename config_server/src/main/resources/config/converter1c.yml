@@ -12,6 +12,9 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/converter1c
+app:
+  client:
+    url: http://localhost:8081/convert/test
 ---
 spring:
   profiles: test
@@ -21,6 +24,9 @@ spring:
 eureka:
   client:
     enabled: false
+app:
+  client:
+    url: http://localhost:8081/convert/test
 ---
 spring:
   profiles: container
@@ -29,4 +35,7 @@ spring:
       uri: mongodb://${CONVERTER1C_DB_HOST}/${CONVERTER1C_DB_NAME}
   zipkin:
     base-url: http://zipkin:9411
+app:
+  client:
+    url: http://localhost:8081/convert/test
 

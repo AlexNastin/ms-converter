@@ -1,7 +1,9 @@
 package by.dt.entity;
 
+import java.io.Serializable;
+
 /**
- * Created by alna0916 on 09.02.2017.
+ * @author Stepanov Nickita (CreaRec) on 11.03.2017.
  */
-public class Entity {
+public interface Entity extends Cloneable, Serializable {
 }
