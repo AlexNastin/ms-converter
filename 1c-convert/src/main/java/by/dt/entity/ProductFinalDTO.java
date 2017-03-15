@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * @author Stepanov Nickita (CreaRec) on 11.03.2017.
  */
-public class ProductFinal {
+public class ProductFinalDTO {
 
     private String barcode;
     private String name;
@@ -14,13 +14,13 @@ public class ProductFinal {
     private double priceUnit;
     private String manufacturer;
     private String country;
-    private List<StoreFinal> stores;
+    private List<StoreFinalDTO> stores;
     private String category;
 
-    public ProductFinal() {
+    public ProductFinalDTO() {
     }
 
-    public ProductFinal(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<StoreFinal> stores, String category) {
+    public ProductFinalDTO(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<StoreFinalDTO> stores, String category) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
@@ -79,11 +79,11 @@ public class ProductFinal {
         this.country = country;
     }
 
-    public List<StoreFinal> getStores() {
+    public List<StoreFinalDTO> getStores() {
         return stores;
     }
 
-    public void setStores(List<StoreFinal> stores) {
+    public void setStores(List<StoreFinalDTO> stores) {
         this.stores = stores;
     }
 
@@ -99,7 +99,7 @@ public class ProductFinal {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductFinal that = (ProductFinal) o;
+        ProductFinalDTO that = (ProductFinalDTO) o;
         return Double.compare(that.priceUnit, priceUnit) == 0 &&
                 Objects.equals(barcode, that.barcode) &&
                 Objects.equals(name, that.name) &&
@@ -117,7 +117,7 @@ public class ProductFinal {
 
     @Override
     public String toString() {
-        return "ProductFinal{" +
+        return "ProductFinalDTO{" +
                 "barcode='" + barcode + '\'' +
                 ", name='" + name + '\'' +
                 ", typeUnit='" + typeUnit + '\'' +

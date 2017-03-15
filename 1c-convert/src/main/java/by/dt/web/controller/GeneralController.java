@@ -1,8 +1,10 @@
 package by.dt.web.controller;
 
 import by.dt.entity.wrapper.ProductFinalWrapper;
+import by.dt.entity.wrapper.PurchaseFinalWrapper;
 import by.dt.service.IGeneralService;
 import by.dt.web.entity.wrapper.ProductWrapper;
+import by.dt.web.entity.wrapper.PurchaseWrapper;
 import by.dt.web.sender.GatewaySender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,11 +32,19 @@ public class GeneralController {
         return "Test Get Good!";
     }
 
-    @RequestMapping(path = "/test", method = RequestMethod.POST)
-    public ResponseEntity testPost(@RequestBody ProductFinalWrapper productFinalWrapper) {
+    @RequestMapping(path = "/test/products", method = RequestMethod.POST)
+    public ResponseEntity testProducts(@RequestBody ProductFinalWrapper productFinalWrapper) {
         System.out.println(productFinalWrapper.getProcessDate());
         System.out.println("--------------------");
         productFinalWrapper.getProducts().forEach(System.out::println);
+        return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/test/purchases", method = RequestMethod.POST)
+    public ResponseEntity testPurchases(@RequestBody PurchaseFinalWrapper purchaseFinalWrapper) {
+        System.out.println(purchaseFinalWrapper.getProcessDate());
+        System.out.println("--------------------");
+        purchaseFinalWrapper.getPurchases().forEach(System.out::println);
         return new ResponseEntity<HttpStatus>(HttpStatus.OK);
     }
 
@@ -42,6 +52,13 @@ public class GeneralController {
     public String products(@RequestBody ProductWrapper products) {
         ProductFinalWrapper productFinalWrapper = generalService.convertToProductFinal(products);
         gatewaySender.sendProducts(productFinalWrapper);
-        return "Send Good!";
+        return "Send Products Good!";
+    }
+
+    @RequestMapping(path = "/purchases", method = RequestMethod.POST)
+    public String purchases(@RequestBody PurchaseWrapper purchases) {
+        PurchaseFinalWrapper purchaseFinalWrapper = generalService.convertToPurchaseFinal(purchases);
+        gatewaySender.sendPurchases(purchaseFinalWrapper);
+        return "Send Purchases Good!";
     }
 }

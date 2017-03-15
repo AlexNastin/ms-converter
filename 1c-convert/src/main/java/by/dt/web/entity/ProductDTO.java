@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * @author Stepanov Nickita (CreaRec) on 11.03.2017.
  */
-public class Product {
+public class ProductDTO {
 
     private String barcode;
     private String name;
@@ -14,13 +14,13 @@ public class Product {
     private double priceUnit;
     private String manufacturer;
     private String country;
-    private List<Store> stores;
+    private List<StoreDTO> stores;
     private String category;
 
-    public Product() {
+    public ProductDTO() {
     }
 
-    public Product(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<Store> stores, String category) {
+    public ProductDTO(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<StoreDTO> stores, String category) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
@@ -79,11 +79,11 @@ public class Product {
         this.country = country;
     }
 
-    public List<Store> getStores() {
+    public List<StoreDTO> getStores() {
         return stores;
     }
 
-    public void setStores(List<Store> stores) {
+    public void setStores(List<StoreDTO> stores) {
         this.stores = stores;
     }
 
@@ -99,7 +99,7 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        ProductDTO product = (ProductDTO) o;
         return Double.compare(product.priceUnit, priceUnit) == 0 &&
                 Objects.equals(barcode, product.barcode) &&
                 Objects.equals(name, product.name) &&
@@ -117,7 +117,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductDTO{" +
                 "barcode='" + barcode + '\'' +
                 ", name='" + name + '\'' +
                 ", typeUnit='" + typeUnit + '\'' +
