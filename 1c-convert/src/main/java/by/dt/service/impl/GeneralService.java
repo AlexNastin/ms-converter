@@ -23,7 +23,7 @@ public class GeneralService implements IGeneralService {
         productWrapper.getProducts().forEach(item -> {
             List<StoreFinal> storeFinals = new ArrayList<>();
             item.getStores().forEach(storeItem -> storeFinals.add(new StoreFinal(storeItem.getName())));
-            productFinals.add(new ProductFinal(item.getBarcode(), item.getName(), item.getTypeUnit(), item.getPriceUnit(), item.getManufacturer(), item.getCountry(), storeFinals, item.getCategory()));
+            productFinals.add(new ProductFinal(item.getBarcode(), item.getName(), item.getTypeUnit(), item.getPriceUnit(), item.getProducer(), item.getCountry(), storeFinals, item.getCategory()));
         });
         ProductFinalWrapper products = new ProductFinalWrapper(productFinals);
         products.setProcessDate(new Date());

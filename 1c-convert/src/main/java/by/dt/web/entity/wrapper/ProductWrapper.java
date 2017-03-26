@@ -11,7 +11,6 @@ import java.util.Objects;
  */
 public class ProductWrapper {
 
-    @JsonProperty("products")
     private List<Product> products;
 
     public ProductWrapper() {

@@ -12,7 +12,7 @@ public class Product {
     private String name;
     private String typeUnit;
     private double priceUnit;
-    private String manufacturer;
+    private String producer;
     private String country;
     private List<Store> stores;
     private String category;
@@ -20,12 +20,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<Store> stores, String category) {
+    public Product(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<Store> stores, String category) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
         this.priceUnit = priceUnit;
-        this.manufacturer = manufacturer;
+        this.producer = producer;
         this.country = country;
         this.stores = stores;
         this.category = category;
@@ -63,12 +63,12 @@ public class Product {
         this.priceUnit = priceUnit;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getProducer() {
+        return producer;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setProducer(String producer) {
+        this.producer = producer;
     }
 
     public String getCountry() {
@@ -104,7 +104,7 @@ public class Product {
                 Objects.equals(barcode, product.barcode) &&
                 Objects.equals(name, product.name) &&
                 Objects.equals(typeUnit, product.typeUnit) &&
-                Objects.equals(manufacturer, product.manufacturer) &&
+                Objects.equals(producer, product.producer) &&
                 Objects.equals(country, product.country) &&
                 Objects.equals(stores, product.stores) &&
                 Objects.equals(category, product.category);
@@ -112,7 +112,7 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(barcode, name, typeUnit, priceUnit, manufacturer, country, stores, category);
+        return Objects.hash(barcode, name, typeUnit, priceUnit, producer, country, stores, category);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", typeUnit='" + typeUnit + '\'' +
                 ", priceUnit=" + priceUnit +
-                ", manufacturer='" + manufacturer + '\'' +
+                ", producer='" + producer + '\'' +
                 ", country='" + country + '\'' +
                 ", stores=" + stores +
                 ", category='" + category + '\'' +
