@@ -1,7 +1,6 @@
 package by.dt.web.entity.wrapper;
 
-import by.dt.web.entity.Product;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import by.dt.web.entity.ProductDTO;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,20 +10,20 @@ import java.util.Objects;
  */
 public class ProductWrapper {
 
-    private List<Product> products;
+    private List<ProductDTO> products;
 
     public ProductWrapper() {
     }
 
-    public ProductWrapper(List<Product> products) {
+    public ProductWrapper(List<ProductDTO> products) {
         this.products = products;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductDTO> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductDTO> products) {
         this.products = products;
     }
 

@@ -1,18 +1,18 @@
-package by.dt.web.entity;
+package by.dt.entity;
 
 import java.util.Objects;
 
 /**
  * @author Stepanov Nickita (CreaRec) on 12.03.2017.
  */
-public class Store {
+public class StoreFinalDTO {
 
     private String name;
 
-    public Store() {
+    public StoreFinalDTO() {
     }
 
-    public Store(String name) {
+    public StoreFinalDTO(String name) {
         this.name = name;
     }
 
@@ -28,7 +28,7 @@ public class Store {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Store store = (Store) o;
+        StoreFinalDTO store = (StoreFinalDTO) o;
         return Objects.equals(name, store.name);
     }
 
@@ -39,7 +39,7 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" +
+        return "StoreFinalDTO{" +
                 "name='" + name + '\'' +
                 '}';
     }

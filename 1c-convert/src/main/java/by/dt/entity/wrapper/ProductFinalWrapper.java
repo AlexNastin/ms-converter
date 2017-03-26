@@ -1,9 +1,9 @@
 package by.dt.entity.wrapper;
 
 import by.dt.entity.Metadata;
-import by.dt.entity.ProductFinal;
+import by.dt.entity.ProductFinalDTO;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,30 +12,30 @@ import java.util.Objects;
  */
 public class ProductFinalWrapper extends Metadata {
 
-    private List<ProductFinal> products;
+    private List<ProductFinalDTO> products;
 
     public ProductFinalWrapper() {
     }
 
-    public ProductFinalWrapper(List<ProductFinal> products) {
+    public ProductFinalWrapper(List<ProductFinalDTO> products) {
         this.products = products;
     }
 
-    public List<ProductFinal> getProducts() {
+    public List<ProductFinalDTO> getProducts() {
         return products;
     }
 
     @Override
-    public Date getProcessDate() {
+    public LocalDate getProcessDate() {
         return processDate;
     }
 
     @Override
-    public void setProcessDate(Date processDate) {
+    public void setProcessDate(LocalDate processDate) {
         this.processDate = processDate;
     }
 
-    public void setProducts(List<ProductFinal> products) {
+    public void setProducts(List<ProductFinalDTO> products) {
         this.products = products;
     }
 

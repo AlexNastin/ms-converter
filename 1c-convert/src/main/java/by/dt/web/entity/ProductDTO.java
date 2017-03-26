@@ -6,26 +6,26 @@ import java.util.Objects;
 /**
  * @author Stepanov Nickita (CreaRec) on 11.03.2017.
  */
-public class Product {
+public class ProductDTO {
 
     private String barcode;
     private String name;
     private String typeUnit;
     private double priceUnit;
-    private String producer;
+    private String manufacturer;
     private String country;
-    private List<Store> stores;
+    private List<StoreDTO> stores;
     private String category;
 
-    public Product() {
+    public ProductDTO() {
     }
 
-    public Product(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<Store> stores, String category) {
+    public ProductDTO(String barcode, String name, String typeUnit, double priceUnit, String manufacturer, String country, List<StoreDTO> stores, String category) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
         this.priceUnit = priceUnit;
-        this.producer = producer;
+        this.manufacturer = manufacturer;
         this.country = country;
         this.stores = stores;
         this.category = category;
@@ -63,12 +63,12 @@ public class Product {
         this.priceUnit = priceUnit;
     }
 
-    public String getProducer() {
-        return producer;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setProducer(String producer) {
-        this.producer = producer;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public String getCountry() {
@@ -79,11 +79,11 @@ public class Product {
         this.country = country;
     }
 
-    public List<Store> getStores() {
+    public List<StoreDTO> getStores() {
         return stores;
     }
 
-    public void setStores(List<Store> stores) {
+    public void setStores(List<StoreDTO> stores) {
         this.stores = stores;
     }
 
@@ -99,12 +99,12 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        ProductDTO product = (ProductDTO) o;
         return Double.compare(product.priceUnit, priceUnit) == 0 &&
                 Objects.equals(barcode, product.barcode) &&
                 Objects.equals(name, product.name) &&
                 Objects.equals(typeUnit, product.typeUnit) &&
-                Objects.equals(producer, product.producer) &&
+                Objects.equals(manufacturer, product.manufacturer) &&
                 Objects.equals(country, product.country) &&
                 Objects.equals(stores, product.stores) &&
                 Objects.equals(category, product.category);
@@ -112,17 +112,17 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(barcode, name, typeUnit, priceUnit, producer, country, stores, category);
+        return Objects.hash(barcode, name, typeUnit, priceUnit, manufacturer, country, stores, category);
     }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductDTO{" +
                 "barcode='" + barcode + '\'' +
                 ", name='" + name + '\'' +
                 ", typeUnit='" + typeUnit + '\'' +
                 ", priceUnit=" + priceUnit +
-                ", producer='" + producer + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
                 ", country='" + country + '\'' +
                 ", stores=" + stores +
                 ", category='" + category + '\'' +

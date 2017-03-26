@@ -14,7 +14,8 @@ spring:
       uri: mongodb://localhost/converter1c
 app:
   client:
-    url: http://localhost:8081/convert/test
+    product-url: http://localhost:8081/convert/test/products
+    purchase-url: http://localhost:8081/convert/test/purchases
 ---
 spring:
   profiles: test
@@ -26,7 +27,8 @@ eureka:
     enabled: false
 app:
   client:
-    url: http://localhost:8081/convert/test
+    product-url: http://localhost:8081/convert/test/products
+    purchase-url: http://localhost:8081/convert/test/purchases
 ---
 spring:
   profiles: container
@@ -37,5 +39,6 @@ spring:
     base-url: http://zipkin:9411
 app:
   client:
-    url: http://localhost:8081/convert/test
+    product-url: http://localhost:8081/convert/test/products
+    purchase-url: http://localhost:8081/convert/test/purchases
 

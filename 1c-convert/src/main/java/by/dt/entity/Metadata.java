@@ -1,6 +1,11 @@
 package by.dt.entity;
 
-import java.util.Date;
+import by.dt.util.LocalDateDeserializer;
+import by.dt.util.LocalDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -10,11 +15,13 @@ public abstract class Metadata implements Entity {
 
     private static final long serialVersionUID = 1L;
 
-    protected Date processDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    protected LocalDate processDate;
 
-    public abstract Date getProcessDate();
+    public abstract LocalDate getProcessDate();
 
-    public abstract void setProcessDate(Date processDate);
+    public abstract void setProcessDate(LocalDate processDate);
 
     @Override
     public boolean equals(Object o) {

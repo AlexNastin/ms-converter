@@ -6,14 +6,25 @@ import org.springframework.stereotype.Component;
 @Component
 public class PromtorgProperties {
 
-    @Value("${app.client.url}")
-    private String urlGateway;
+    @Value("${app.client.product-url}")
+    private String urlGatewayProduct;
 
-    public String getUrlGateway() {
-        return urlGateway;
+    @Value("${app.client.purchase-url}")
+    private String urlGatewayPurchase;
+
+    public String getUrlGatewayProduct() {
+        return urlGatewayProduct;
     }
 
-    public void setUrlGateway(String urlGateway) {
-        this.urlGateway = urlGateway;
+    public void setUrlGatewayProduct(String urlGatewayProduct) {
+        this.urlGatewayProduct = urlGatewayProduct;
+    }
+
+    public String getUrlGatewayPurchase() {
+        return urlGatewayPurchase;
+    }
+
+    public void setUrlGatewayPurchase(String urlGatewayPurchase) {
+        this.urlGatewayPurchase = urlGatewayPurchase;
     }
 }
