@@ -22,14 +22,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <docker.registry>https://hub.docker.com/r/alexnastin/ms-convertes/</docker.registry>
+        <docker.registry>https://hub.docker.com/r/alexnastin/ms-converter/</docker.registry>
     </properties>
 
     <modules>
         <module>config_server</module>
         <module>service_registry</module>
         <module>service_gateway</module>
-        <module>1c-convert</module>
+        <module>boao-promtorg</module>
     </modules>
 
     <dependencies>
