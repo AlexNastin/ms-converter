@@ -15,7 +15,7 @@ public class MessageBrokerClient {
 
     private final RestTemplate restTemplate;
 
-    @Value("${url.messagebroker}")
+    @Value("${url.message-broker}")
     private String urlBase;
 
     @Autowired
