@@ -1,7 +1,7 @@
 package by.dt.promtorg.web.controller;
 
-import by.dt.promtorg.entity.server.to.wrapper.ProductWrapper;
-import by.dt.promtorg.entity.server.to.wrapper.PurchaseWrapper;
+import by.dt.promtorg.entity.from.ProductWrapper;
+import by.dt.promtorg.entity.from.PurchaseWrapper;
 import by.dt.promtorg.service.GeneralService;
 import by.dt.promtorg.web.client.MessageBrokerClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,31 +25,15 @@ public class GeneralController {
         this.gatewaySender = gatewaySender;
     }
 
-    @RequestMapping(path = "/test/products", method = RequestMethod.POST)
-    public ResponseEntity testProducts(@RequestBody ProductWrapper productWrapper) {
-        System.out.println(productWrapper.getProcessDate());
-        System.out.println("--------------------");
-        productWrapper.getProducts().forEach(System.out::println);
-        return new ResponseEntity<HttpStatus>(HttpStatus.OK);
-    }
-
-    @RequestMapping(path = "/test/purchases", method = RequestMethod.POST)
-    public ResponseEntity testPurchases(@RequestBody PurchaseWrapper purchaseWrapper) {
-        System.out.println(purchaseWrapper.getProcessDate());
-        System.out.println("--------------------");
-        purchaseWrapper.getPurchases().forEach(System.out::println);
-        return new ResponseEntity<HttpStatus>(HttpStatus.OK);
-    }
-
     @RequestMapping(path = "/products", method = RequestMethod.POST)
-    public String products(@RequestBody by.dt.promtorg.entity.client.to.wrapper.ProductWrapper products) {
+    public String products(@RequestBody by.dt.promtorg.entity.to.wrapper.ProductWrapper products) {
         ProductWrapper productWrapper = generalService.convertToProductFinal(products);
         gatewaySender.sendProducts(productWrapper);
         return "Send Products Good!";
     }
 
     @RequestMapping(path = "/purchases", method = RequestMethod.POST)
-    public String purchases(@RequestBody by.dt.promtorg.entity.client.to.wrapper.PurchaseWrapper purchases) {
+    public String purchases(@RequestBody by.dt.promtorg.entity.to.wrapper.PurchaseWrapper purchases) {
         PurchaseWrapper purchaseWrapper = generalService.convertToPurchaseFinal(purchases);
         gatewaySender.sendPurchases(purchaseWrapper);
         return "Send Purchases Good!";

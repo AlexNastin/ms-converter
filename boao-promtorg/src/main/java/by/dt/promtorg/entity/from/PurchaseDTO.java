@@ -1,4 +1,4 @@
-package by.dt.promtorg.entity.server.to;
+package by.dt.promtorg.entity.from;
 
 import by.dt.promtorg.util.LocalDateSerializer;
 import by.dt.promtorg.util.LocalDateDeserializer;

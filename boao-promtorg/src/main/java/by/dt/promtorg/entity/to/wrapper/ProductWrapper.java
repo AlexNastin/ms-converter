@@ -1,6 +1,6 @@
-package by.dt.promtorg.entity.client.to.wrapper;
+package by.dt.promtorg.entity.to.wrapper;
 
-import by.dt.promtorg.entity.client.to.ProductDTO;
+import by.dt.promtorg.entity.to.ProductDTO;
 
 import java.util.List;
 import java.util.Objects;

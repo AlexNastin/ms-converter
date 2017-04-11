@@ -1,7 +1,6 @@
-package by.dt.promtorg.entity.server.to.wrapper;
+package by.dt.promtorg.entity.from;
 
 import by.dt.promtorg.entity.Metadata;
-import by.dt.promtorg.entity.server.to.ProductDTO;
 
 import java.time.LocalDate;
 import java.util.List;

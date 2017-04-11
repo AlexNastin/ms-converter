@@ -1,16 +1,14 @@
-package by.dt.promtorg.entity.server.to.wrapper;
+package by.dt.promtorg.entity.to.wrapper;
 
-import by.dt.promtorg.entity.Metadata;
-import by.dt.promtorg.entity.server.to.PurchaseDTO;
+import by.dt.promtorg.entity.to.PurchaseDTO;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
 /**
  * @author Stepanov Nickita (CreaRec) on 15.03.2017.
  */
-public class PurchaseWrapper extends Metadata {
+public class PurchaseWrapper {
 
     private List<PurchaseDTO> purchases;
 
@@ -27,16 +25,6 @@ public class PurchaseWrapper extends Metadata {
 
     public void setPurchases(List<PurchaseDTO> purchases) {
         this.purchases = purchases;
-    }
-
-    @Override
-    public LocalDate getProcessDate() {
-        return processDate;
-    }
-
-    @Override
-    public void setProcessDate(LocalDate processDate) {
-        this.processDate = processDate;
     }
 
     @Override

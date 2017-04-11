@@ -1,0 +1,23 @@
+spring:
+  profiles.active: default
+eureka:
+  instance:
+    appname: boao-promtorg
+    hostname: boao-promtorg
+server:
+  port: ${BOAO-PROMTORG_SERVER_PORT:9081}
+url:
+  messagebroker: http:\\test
+---
+spring:
+  profiles: default
+---
+spring:
+  profiles: test
+eureka:
+  client:
+    enabled: false
+---
+spring:
+  profiles: container
+

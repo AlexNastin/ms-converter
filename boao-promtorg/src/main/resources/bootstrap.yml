@@ -1,6 +1,6 @@
 spring:
   application:
-    name: converter1c
+    name: boao-promtorg
   cloud:
     config:
       enabled: true

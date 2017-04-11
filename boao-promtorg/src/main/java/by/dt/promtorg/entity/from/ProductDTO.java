@@ -1,4 +1,4 @@
-package by.dt.promtorg.entity.server.to;
+package by.dt.promtorg.entity.from;
 
 import java.util.List;
 import java.util.Objects;

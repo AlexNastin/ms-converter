@@ -1,4 +1,4 @@
-package by.dt.promtorg.entity.client.to;
+package by.dt.promtorg.entity.to;
 
 import by.dt.promtorg.util.LocalDateDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
