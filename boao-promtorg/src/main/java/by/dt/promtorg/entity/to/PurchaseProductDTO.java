@@ -61,7 +61,7 @@ public class PurchaseProductDTO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("PurchaseProductDTO{");
+        final StringBuilder sb = new StringBuilder("PurchaseProductWrapper{");
         sb.append("barcode='").append(barcode).append('\'');
         sb.append(", quantity=").append(quantity);
         sb.append(", price=").append(price);

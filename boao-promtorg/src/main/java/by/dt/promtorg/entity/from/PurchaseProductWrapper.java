@@ -1,20 +1,22 @@
 package by.dt.promtorg.entity.from;
 
+import by.dt.promtorg.entity.Metadata;
+
 import java.util.Objects;
 
 /**
  * @author Stepanov Nickita (CreaRec) on 15.03.2017.
  */
-public class PurchaseProductDTO {
+public class PurchaseProductWrapper extends Metadata {
 
     private String barcode;
     private double quantity;
     private double price;
 
-    public PurchaseProductDTO() {
+    public PurchaseProductWrapper() {
     }
 
-    public PurchaseProductDTO(String barcode, double quantity, double price) {
+    public PurchaseProductWrapper(String barcode, double quantity, double price) {
         this.barcode = barcode;
         this.quantity = quantity;
         this.price = price;
@@ -47,8 +49,8 @@ public class PurchaseProductDTO {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PurchaseProductDTO)) return false;
-        PurchaseProductDTO that = (PurchaseProductDTO) o;
+        if (!(o instanceof PurchaseProductWrapper)) return false;
+        PurchaseProductWrapper that = (PurchaseProductWrapper) o;
         return Double.compare(that.quantity, quantity) == 0 &&
                 Double.compare(that.price, price) == 0 &&
                 Objects.equals(barcode, that.barcode);
@@ -61,7 +63,7 @@ public class PurchaseProductDTO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("PurchaseProductDTO{");
+        final StringBuilder sb = new StringBuilder("PurchaseProductWrapper{");
         sb.append("barcode='").append(barcode).append('\'');
         sb.append(", quantity=").append(quantity);
         sb.append(", price=").append(price);

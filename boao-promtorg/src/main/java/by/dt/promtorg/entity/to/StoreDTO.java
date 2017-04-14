@@ -28,18 +28,18 @@ public class StoreDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StoreDTO store = (StoreDTO) o;
-        return Objects.equals(name, store.name);
+        StoreDTO storeDTO = (StoreDTO) o;
+        return Objects.equals(getName(), storeDTO.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(getName());
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("StoreDTO{");
+        final StringBuilder sb = new StringBuilder("StoreWrapper{");
         sb.append("name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();

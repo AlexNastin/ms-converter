@@ -117,7 +117,7 @@ public class ProductDTO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductDTO{");
+        final StringBuilder sb = new StringBuilder("ProductWrapper{");
         sb.append("barcode='").append(barcode).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", typeUnit='").append(typeUnit).append('\'');

@@ -1,5 +1,8 @@
 spring:
-  profiles.active: default
+  profiles:
+    active: default
+  rabbitmq:
+      host: localhost
 eureka:
   instance:
     appname: boao-promtorg
@@ -8,6 +11,12 @@ server:
   port: ${BOAO-PROMTORG_SERVER_PORT:9081}
 url:
   message-broker: http:\\test
+rabbitmq:
+  names:
+    general: general
+    priority: priority
+  exchange:
+    name: exchange-prom
 ---
 spring:
   profiles: default

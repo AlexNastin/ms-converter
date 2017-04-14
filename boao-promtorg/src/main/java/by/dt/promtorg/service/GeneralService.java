@@ -2,13 +2,14 @@ package by.dt.promtorg.service;
 
 import by.dt.promtorg.entity.from.ProductWrapper;
 import by.dt.promtorg.entity.from.PurchaseWrapper;
+import by.dt.promtorg.entity.to.ProductsDTO;
+import by.dt.promtorg.entity.to.PurchasesDTO;
 
-/**
- * @author Stepanov Nickita (CreaRec) on 12.03.2017.
- */
+import java.util.List;
+
 public interface GeneralService {
 
-    ProductWrapper convertToProductFinal(by.dt.promtorg.entity.to.wrapper.ProductWrapper productWrapper);
+    List<ProductWrapper> convertToProductWrapper(ProductsDTO productsDTO);
 
-    PurchaseWrapper convertToPurchaseFinal(by.dt.promtorg.entity.to.wrapper.PurchaseWrapper purchaseWrapper);
+    List<PurchaseWrapper> convertToPurchaseWrapper(PurchasesDTO purchaseDTO);
 }

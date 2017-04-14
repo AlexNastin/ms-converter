@@ -1,6 +1,4 @@
-package by.dt.promtorg.entity.to.wrapper;
-
-import by.dt.promtorg.entity.to.ProductDTO;
+package by.dt.promtorg.entity.to;
 
 import java.util.List;
 import java.util.Objects;
@@ -8,14 +6,14 @@ import java.util.Objects;
 /**
  * @author Stepanov Nickita (CreaRec) on 11.03.2017.
  */
-public class ProductWrapper {
+public class ProductsDTO {
 
     private List<ProductDTO> products;
 
-    public ProductWrapper() {
+    public ProductsDTO() {
     }
 
-    public ProductWrapper(List<ProductDTO> products) {
+    public ProductsDTO(List<ProductDTO> products) {
         this.products = products;
     }
 
@@ -31,7 +29,7 @@ public class ProductWrapper {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductWrapper that = (ProductWrapper) o;
+        ProductsDTO that = (ProductsDTO) o;
         return Objects.equals(products, that.products);
     }
 
@@ -42,7 +40,7 @@ public class ProductWrapper {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductWrapper{");
+        final StringBuilder sb = new StringBuilder("ProductsDTO{");
         sb.append("products=").append(products);
         sb.append('}');
         return sb.toString();

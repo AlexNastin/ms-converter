@@ -7,11 +7,11 @@ eureka:
 server:
   port: ${GATEWAY_SERVER_PORT:9090}
 zuul:
-  prefix: /api/v1
+  prefix: /gateway/api/v1
   routes:
-    quota:
-      path: /convert/**
-      serviceId: converner1c
+    boao-promtorg:
+      path: /boao-promtorg/**
+      serviceId: boao-promtorg
   host:
    connect-timeout-millis: 50000
    socket-timeout-millis: 50000

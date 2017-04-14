@@ -19,21 +19,25 @@ public abstract class Metadata implements Entity {
     @JsonSerialize(using = LocalDateSerializer.class)
     protected LocalDate processDate;
 
-    public abstract LocalDate getProcessDate();
+    public LocalDate getProcessDate() {
+        return processDate;
+    }
 
-    public abstract void setProcessDate(LocalDate processDate);
+    public void setProcessDate(LocalDate processDate) {
+        this.processDate = processDate;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Metadata that = (Metadata) o;
-        return Objects.equals(processDate, that.processDate);
+        Metadata metadata = (Metadata) o;
+        return Objects.equals(getProcessDate(), metadata.getProcessDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(processDate);
+        return Objects.hash(getProcessDate());
     }
 
     @Override

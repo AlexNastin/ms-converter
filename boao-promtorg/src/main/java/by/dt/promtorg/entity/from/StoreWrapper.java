@@ -1,18 +1,20 @@
 package by.dt.promtorg.entity.from;
 
+import by.dt.promtorg.entity.Metadata;
+
 import java.util.Objects;
 
 /**
  * @author Stepanov Nickita (CreaRec) on 12.03.2017.
  */
-public class StoreDTO {
+public class StoreWrapper extends Metadata {
 
     private String name;
 
-    public StoreDTO() {
+    public StoreWrapper() {
     }
 
-    public StoreDTO(String name) {
+    public StoreWrapper(String name) {
         this.name = name;
     }
 
@@ -28,7 +30,7 @@ public class StoreDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StoreDTO store = (StoreDTO) o;
+        StoreWrapper store = (StoreWrapper) o;
         return Objects.equals(name, store.name);
     }
 
@@ -39,7 +41,7 @@ public class StoreDTO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("StoreDTO{");
+        final StringBuilder sb = new StringBuilder("StoreWrapper{");
         sb.append("name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();

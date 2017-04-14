@@ -100,7 +100,7 @@ public class PurchaseDTO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("PurchaseDTO{");
+        final StringBuilder sb = new StringBuilder("PurchaseWrapper{");
         sb.append("checkNumber='").append(checkNumber).append('\'');
         sb.append(", cardID='").append(cardID).append('\'');
         sb.append(", date=").append(date);
