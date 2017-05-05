@@ -84,7 +84,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.11</version>
                 <configuration>
-                    <dockerHost>http://192.168.99.100:2375</dockerHost>
+                    <dockerHost>https://192.168.99.100:2376</dockerHost>
                     <imageName>${docker.image.name}</imageName>
                     <dockerDirectory>${basedir}/src/main/docker-dir</dockerDirectory>
                     <dockerCertPath>${user.home}/.docker/machine/machines/default</dockerCertPath>
