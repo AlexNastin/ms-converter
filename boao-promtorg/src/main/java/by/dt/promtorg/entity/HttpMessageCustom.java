@@ -4,10 +4,18 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Objects;
 
-public class HttpMessage {
+public class HttpMessageCustom {
 
     private HttpStatus status;
     private String message;
+
+    public HttpMessageCustom() {
+    }
+
+    public HttpMessageCustom(HttpStatus status, String message) {
+        this.status = status;
+        this.message = message;
+    }
 
     public HttpStatus getStatus() {
         return status;
@@ -29,7 +37,7 @@ public class HttpMessage {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HttpMessage that = (HttpMessage) o;
+        HttpMessageCustom that = (HttpMessageCustom) o;
         return status == that.status &&
                 Objects.equals(message, that.message);
     }
@@ -37,5 +45,14 @@ public class HttpMessage {
     @Override
     public int hashCode() {
         return Objects.hash(status, message);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("HttpMessageCustom{");
+        sb.append("status=").append(status);
+        sb.append(", message='").append(message).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

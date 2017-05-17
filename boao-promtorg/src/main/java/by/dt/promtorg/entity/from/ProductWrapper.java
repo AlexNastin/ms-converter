@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Nastin A
+ * @version 1.0
+ */
 public class ProductWrapper extends Metadata {
 
     private String barcode;
@@ -15,13 +19,13 @@ public class ProductWrapper extends Metadata {
     private String producer;
     private String country;
     private List<StoreWrapper> stores;
-
     private String category;
+    private String subCategory;
 
     public ProductWrapper() {
     }
 
-    public ProductWrapper(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<StoreWrapper> stores, String category) {
+    public ProductWrapper(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<StoreWrapper> stores, String category, String subCategory) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
@@ -30,6 +34,20 @@ public class ProductWrapper extends Metadata {
         this.country = country;
         this.stores = stores;
         this.category = category;
+        this.subCategory = subCategory;
+    }
+
+    public ProductWrapper(LocalDate processDate, String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<StoreWrapper> stores, String category, String subCategory) {
+        super(processDate);
+        this.barcode = barcode;
+        this.name = name;
+        this.typeUnit = typeUnit;
+        this.priceUnit = priceUnit;
+        this.producer = producer;
+        this.country = country;
+        this.stores = stores;
+        this.category = category;
+        this.subCategory = subCategory;
     }
 
     public String getBarcode() {
@@ -96,10 +114,19 @@ public class ProductWrapper extends Metadata {
         this.category = category;
     }
 
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         ProductWrapper that = (ProductWrapper) o;
         return Double.compare(that.priceUnit, priceUnit) == 0 &&
                 Objects.equals(barcode, that.barcode) &&
@@ -108,12 +135,13 @@ public class ProductWrapper extends Metadata {
                 Objects.equals(producer, that.producer) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(stores, that.stores) &&
-                Objects.equals(category, that.category);
+                Objects.equals(category, that.category) &&
+                Objects.equals(subCategory, that.subCategory);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(barcode, name, typeUnit, priceUnit, producer, country, stores, category);
+        return Objects.hash(super.hashCode(), barcode, name, typeUnit, priceUnit, producer, country, stores, category, subCategory);
     }
 
     @Override
@@ -127,6 +155,7 @@ public class ProductWrapper extends Metadata {
         sb.append(", country='").append(country).append('\'');
         sb.append(", stores=").append(stores);
         sb.append(", category='").append(category).append('\'');
+        sb.append(", subCategory='").append(subCategory).append('\'');
         sb.append('}');
         return sb.toString();
     }

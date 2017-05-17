@@ -8,9 +8,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- * @author Stepanov Nickita (CreaRec) on 11.03.2017.
- */
 public abstract class Metadata implements Entity {
 
     private static final long serialVersionUID = 1L;
@@ -18,6 +15,13 @@ public abstract class Metadata implements Entity {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     protected LocalDate processDate;
+
+    public Metadata() {
+    }
+
+    public Metadata(LocalDate processDate) {
+        this.processDate = processDate;
+    }
 
     public LocalDate getProcessDate() {
         return processDate;

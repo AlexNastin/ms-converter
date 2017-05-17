@@ -5,7 +5,8 @@ import by.dt.promtorg.entity.Metadata;
 import java.util.Objects;
 
 /**
- * @author Stepanov Nickita (CreaRec) on 15.03.2017.
+ * @author Nastin A
+ * @version 1.0
  */
 public class PurchaseProductWrapper extends Metadata {
 

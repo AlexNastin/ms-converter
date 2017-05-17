@@ -1,48 +1,47 @@
 package by.dt.promtorg.entity.from;
 
-import by.dt.promtorg.entity.Metadata;
-
 import java.util.Objects;
 
 /**
- * @author Stepanov Nickita (CreaRec) on 12.03.2017.
+ * @author Nastin A
+ * @version 1.0
  */
-public class StoreWrapper extends Metadata {
+public class StoreWrapper {
 
-    private String name;
+    private AddressWrapper address;
 
     public StoreWrapper() {
     }
 
-    public StoreWrapper(String name) {
-        this.name = name;
+    public StoreWrapper(AddressWrapper address) {
+        this.address = address;
     }
 
-    public String getName() {
-        return name;
+    public AddressWrapper getAddress() {
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddress(AddressWrapper address) {
+        this.address = address;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StoreWrapper store = (StoreWrapper) o;
-        return Objects.equals(name, store.name);
+        StoreWrapper storeDTO = (StoreWrapper) o;
+        return Objects.equals(address, storeDTO.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(address);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("StoreWrapper{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("address=").append(address);
         sb.append('}');
         return sb.toString();
     }

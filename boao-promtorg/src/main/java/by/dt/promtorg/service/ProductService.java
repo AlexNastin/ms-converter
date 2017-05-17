@@ -7,7 +7,7 @@ import by.dt.promtorg.entity.to.PurchasesDTO;
 
 import java.util.List;
 
-public interface GeneralService {
+public interface ProductService {
 
     List<ProductWrapper> convertToProductWrapper(ProductsDTO productsDTO);
 

@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author Stepanov Nickita (CreaRec) on 11.03.2017.
+ * @author Nastin A
+ * @version 1.0
  */
 public class ProductDTO {
 
@@ -16,11 +17,12 @@ public class ProductDTO {
     private String country;
     private List<StoreDTO> stores;
     private String category;
+    private String subCategory;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<StoreDTO> stores, String category) {
+    public ProductDTO(String barcode, String name, String typeUnit, double priceUnit, String producer, String country, List<StoreDTO> stores, String category, String subCategory) {
         this.barcode = barcode;
         this.name = name;
         this.typeUnit = typeUnit;
@@ -29,6 +31,7 @@ public class ProductDTO {
         this.country = country;
         this.stores = stores;
         this.category = category;
+        this.subCategory = subCategory;
     }
 
     public String getBarcode() {
@@ -95,6 +98,14 @@ public class ProductDTO {
         this.category = category;
     }
 
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,17 +118,18 @@ public class ProductDTO {
                 Objects.equals(producer, that.producer) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(stores, that.stores) &&
-                Objects.equals(category, that.category);
+                Objects.equals(category, that.category) &&
+                Objects.equals(subCategory, that.subCategory);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(barcode, name, typeUnit, priceUnit, producer, country, stores, category);
+        return Objects.hash(barcode, name, typeUnit, priceUnit, producer, country, stores, category, subCategory);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductWrapper{");
+        final StringBuilder sb = new StringBuilder("ProductDTO{");
         sb.append("barcode='").append(barcode).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", typeUnit='").append(typeUnit).append('\'');
@@ -126,6 +138,7 @@ public class ProductDTO {
         sb.append(", country='").append(country).append('\'');
         sb.append(", stores=").append(stores);
         sb.append(", category='").append(category).append('\'');
+        sb.append(", subCategory='").append(subCategory).append('\'');
         sb.append('}');
         return sb.toString();
     }

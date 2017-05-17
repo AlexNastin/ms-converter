@@ -3,25 +3,26 @@ package by.dt.promtorg.entity.to;
 import java.util.Objects;
 
 /**
- * @author Stepanov Nickita (CreaRec) on 12.03.2017.
+ * @author Nastin A
+ * @version 1.0
  */
 public class StoreDTO {
 
-    private String name;
+    private AddressDTO address;
 
     public StoreDTO() {
     }
 
-    public StoreDTO(String name) {
-        this.name = name;
+    public StoreDTO(AddressDTO address) {
+        this.address = address;
     }
 
-    public String getName() {
-        return name;
+    public AddressDTO getAddress() {
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddress(AddressDTO address) {
+        this.address = address;
     }
 
     @Override
@@ -29,18 +30,18 @@ public class StoreDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StoreDTO storeDTO = (StoreDTO) o;
-        return Objects.equals(getName(), storeDTO.getName());
+        return Objects.equals(address, storeDTO.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(address);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("StoreWrapper{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("address=").append(address);
         sb.append('}');
         return sb.toString();
     }
