@@ -1,5 +1,6 @@
 package by.dt.promtorg.entity.to;
 
+import by.dt.promtorg.entity.Entity;
 import by.dt.promtorg.util.LocalDateDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
  * @author Nastin A
  * @version 1.0
  */
-public class PurchaseDTO {
+public class PurchaseDTO implements Entity {
 
     private String checkNumber;
     private String cardID;

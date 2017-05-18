@@ -1,5 +1,7 @@
 package by.dt.promtorg.entity.to;
 
+import by.dt.promtorg.entity.Entity;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +9,7 @@ import java.util.Objects;
  * @author Nastin A
  * @version 1.0
  */
-public class PurchasesDTO {
+public class PurchasesDTO implements Entity {
 
     private List<PurchaseDTO> purchases;
 

@@ -1,12 +1,15 @@
 package by.dt.promtorg.entity.from;
 
+import by.dt.promtorg.entity.Entity;
+
+import java.security.spec.ECField;
 import java.util.Objects;
 
 /**
  * @author Nastin A
  * @version 1.0
  */
-public class AddressWrapper {
+public class AddressWrapper implements Entity {
 
     private String x;
     private String y;

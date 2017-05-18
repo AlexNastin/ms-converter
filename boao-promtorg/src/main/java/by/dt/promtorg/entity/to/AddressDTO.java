@@ -1,12 +1,14 @@
 package by.dt.promtorg.entity.to;
 
+import by.dt.promtorg.entity.Entity;
+
 import java.util.Objects;
 
 /**
  * @author Nastin A
  * @version 1.0
  */
-public class AddressDTO {
+public class AddressDTO implements Entity {
 
     private String x;
     private String y;

@@ -1,12 +1,14 @@
 package by.dt.promtorg.entity.from;
 
+import by.dt.promtorg.entity.Entity;
+
 import java.util.Objects;
 
 /**
  * @author Nastin A
  * @version 1.0
  */
-public class StoreWrapper {
+public class StoreWrapper implements Entity {
 
     private AddressWrapper address;
 
