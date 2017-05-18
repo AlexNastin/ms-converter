@@ -1,5 +1,6 @@
 spring:
-  profiles.active: native
-
+  profiles:
+    active: native
+---
 server:
   port: ${CONFIG_SERVER_PORT:8888}

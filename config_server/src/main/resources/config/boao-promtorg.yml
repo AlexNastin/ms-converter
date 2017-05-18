@@ -1,14 +1,17 @@
 spring:
   profiles:
     active: default
+---
+spring:
+  profiles: default
   rabbitmq:
-      host: localhost
+      host: ${RABBITMQ_HOST:localhost}
 eureka:
   instance:
     appname: boao-promtorg
     hostname: boao-promtorg
 server:
-  port: ${BOAO-PROMTORG_SERVER_PORT:9081}
+  port: ${BOAO_PROMTORG_SERVER_PORT:9081}
 url:
   message-broker: http:\\test
 rabbitmq:
@@ -19,14 +22,4 @@ rabbitmq:
     name: exchange-prom
 ---
 spring:
-  profiles: default
----
-spring:
-  profiles: test
-eureka:
-  client:
-    enabled: false
----
-spring:
   profiles: container
-

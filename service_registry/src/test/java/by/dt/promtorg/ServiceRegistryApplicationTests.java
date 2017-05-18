@@ -12,5 +12,4 @@ public class ServiceRegistryApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }

@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: default
+---
+spring:
+  profiles: default
 server:
   port: ${REGISTRY_SERVER_PORT:8761}
 eureka:
@@ -16,12 +19,6 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
----
-spring:
-  profiles: default
-eureka:
-  instance:
-    hostname: localhost
 ---
 spring:
   profiles: container
