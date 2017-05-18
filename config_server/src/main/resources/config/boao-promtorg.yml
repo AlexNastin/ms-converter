@@ -6,6 +6,8 @@ spring:
   profiles: default
   rabbitmq:
       host: ${RABBITMQ_HOST:localhost}
+      user: guest
+      password: guest
 eureka:
   instance:
     appname: boao-promtorg
