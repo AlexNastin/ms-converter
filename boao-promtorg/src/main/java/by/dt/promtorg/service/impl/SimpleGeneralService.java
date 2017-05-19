@@ -8,29 +8,27 @@ import by.dt.promtorg.entity.from.StoreWrapper;
 import by.dt.promtorg.entity.to.ProductsDTO;
 import by.dt.promtorg.entity.to.PurchasesDTO;
 import by.dt.promtorg.service.GeneralService;
-import org.springframework.amqp.AmqpException;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessagePostProcessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class SimpleGeneralService implements GeneralService {
 
     private final RabbitTemplate rabbitTemplate;
 
+    private final ObjectMapper objectMapper;
+
     @Autowired
-    public SimpleGeneralService(RabbitTemplate rabbitTemplate) {
+    public SimpleGeneralService(RabbitTemplate rabbitTemplate, ObjectMapper objectMapper) {
         this.rabbitTemplate = rabbitTemplate;
+        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -53,30 +51,27 @@ public class SimpleGeneralService implements GeneralService {
     }
 
     @Override
-    public <T extends Entity> boolean sendRabbitMQ(List<T> purchaseWrappers) {
-        while (!purchaseWrappers.isEmpty()) {
-            T t = purchaseWrappers.remove(0);
-            rabbitTemplate.convertAndSend("general", t, new MessagePostProcessor() {
-                @Override
-                public Message postProcessMessage(Message message) throws AmqpException {
-                    System.out.println("!!!!!!! " + message);
-                    System.out.println("@@@@@@@ " + message.getBody());
-                    System.out.println("&&&&&&& " + message.getMessageProperties());
-                    ByteArrayInputStream inputStreamReader = new ByteArrayInputStream(message.getBody());
-                    try {
-                        ObjectInputStream ois = new ObjectInputStream(inputStreamReader);
-                        ProductWrapper productWrapper = (ProductWrapper) ois.readObject();
-                        System.out.println("%%%%%%%%" + productWrapper);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+    public <T extends Entity> List<T> sendRabbitMQ(List<T> objects) {
+        List<T> objectsError = new ArrayList<>();
+        Random random = new Random();
+        while (!objects.isEmpty()) {
+            T t = objects.remove(0);
+            String jsonObj = null;
+            try {
+                jsonObj = objectMapper.writeValueAsString(t);
+                rabbitTemplate.convertAndSend("general", jsonObj, message -> {
+                    MessageProperties messageProperties = message.getMessageProperties();
+                    messageProperties.setTimestamp(new Date());
+                    messageProperties.setType(t.getClass().getCanonicalName());
+                    messageProperties.setAppId("boao-promtorg");
+                    messageProperties.setMessageId(new UUID(random.nextLong(), random.nextLong()).toString());
                     return message;
-                }
-            });
+                });
+            } catch (JsonProcessingException e) {
+                sendRabbitMQ(objects);//ToDO
+            }
         }
-        return false;
+        return null;
     }
 
     @Override

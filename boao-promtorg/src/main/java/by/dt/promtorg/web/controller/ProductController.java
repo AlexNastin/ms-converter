@@ -3,6 +3,7 @@ package by.dt.promtorg.web.controller;
 import by.dt.promtorg.entity.from.ProductWrapper;
 import by.dt.promtorg.entity.to.ProductsDTO;
 import by.dt.promtorg.service.GeneralService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -10,6 +10,7 @@ public class RabbitMqListener {
     @RabbitListener(queues = "general")
     public void worker1(Message message) {
         System.out.println("general " + message);
+
     }
 
     @RabbitListener(queues = "priority")
