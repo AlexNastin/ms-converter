@@ -14,8 +14,6 @@ eureka:
     hostname: boao-promtorg
 server:
   port: ${BOAO_PROMTORG_SERVER_PORT:9081}
-url:
-  message-broker: http:\\test
 rabbitmq:
   names:
     general: general
